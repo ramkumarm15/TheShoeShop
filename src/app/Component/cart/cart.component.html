@@ -1,0 +1,116 @@
+<main class="cart mt-5 pt-5">
+  <div class="container">
+    <ng-container *ngIf="!loading">
+      <div class="row">
+        <div class="col-12">
+          <h2>Cart</h2>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-7 mb-3">
+          <ng-container *ngIf="cartOfUser; else emptyCart">
+            <div
+              class="card rounded-0"
+              *ngFor="let data of cartOfUser.cartItemsList"
+            >
+              <div class="row g-0">
+                <div
+                  class="col-sm-4 d-flex justify-content-center align-items-center rounded-0 p-4"
+                >
+                  <img
+                    [src]="data.product.image"
+                    alt="data.product.name"
+                    class="img-thumbnail rounded-0 me-2"
+                    width="200"
+                    height="200"
+                  />
+                </div>
+                <div class="col-sm-8">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      <span>{{ data.product.name }}</span>
+                      <span class="d-none d-md-block fs-sm float-end">
+                        {{ data.product.price | currency : "INR" }} x
+                        {{ data.quantity }}
+                      </span>
+                    </h5>
+                    <p class="card-text fs-sm">
+                      <strong>{{ data.totalPrice | currency : "INR" }}</strong>
+                    </p>
+                    <div
+                      class="d-flex flex-wrap justify-content-between align-items-center"
+                    >
+                      <div class="btn-group btn-sm dropdown me-2">
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary dropdown-toggle"
+                          data-bs-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                        >
+                          Qty : {{ data.quantity }}
+                        </button>
+                        <div class="dropdown-menu my-1">
+                          <button
+                            *ngFor="let qty of cartQty"
+                            class="dropdown-item"
+                            [ngClass]="
+                              data.quantity == qty.value ? 'active' : ''
+                            "
+                            (click)="updateCart(data.product.id, qty.value)"
+                          >
+                            {{ qty.value }}
+                          </button>
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-danger"
+                        (click)="deleteCart(data.product.id)"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-template #emptyCart> cart empty </ng-template>
+        </div>
+        <div class="col-md-4 offset-md-1" *ngIf="cartOfUser">
+          <div class="card">
+            <div class="card-body">
+              <h4>Order Summary</h4>
+              <div class="orderSummary">
+                <div class="orderSummaryData">
+                  <p>Sub Total</p>
+                  <h6>{{ cartOfUser.totalPrice | currency : "INR" }}</h6>
+                </div>
+                <div class="orderSummaryData">
+                  <p>Shipping</p>
+                  <h6>Free</h6>
+                </div>
+                <hr class="w-100" />
+                <div class="orderSummaryData">
+                  <p>Total</p>
+                  <h6>{{ cartOfUser.totalPrice | currency : "INR" }}</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="d-flex justify-content-between align-items-center btnstickyFooter mt-4"
+          >
+            <h6 class="d-block d-md-none m-0 me-2">
+              {{ cartOfUser.totalPrice | currency : "INR" }}
+            </h6>
+            <!-- <button class="btn btn-primary w-100">Next</button> -->
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <app-loader [loading]="loading"></app-loader>
+  </div>
+</main>

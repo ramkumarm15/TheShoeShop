@@ -1,0 +1,108 @@
+<main class="home mt-4">
+  <div class="container mt-5 pt-5">
+    <ng-container *ngIf="!loading">
+      <div class="row mb-3">
+        <div class="col-12 d-flex justify-content-between align-items-center">
+          <h1>Shop</h1>
+          <nav class="" aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0">
+              <li class="breadcrumb-item">
+                <a routerLink="">Home</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <i class="bi bi-bag me-1"></i>Shop
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 filterAction">
+          <div class="form-group form-floating m-0 searchForm">
+            <input
+              placeholder="Search products"
+              name="search"
+              id="search"
+              class="form-control"
+              [(ngModel)]="searchQuery.name"
+            />
+            <label for="search">Search Products</label>
+          </div>
+          <div class="sortAction">
+            <div class="btn-group">
+              <button
+                type="button"
+                class="btn btn-outline-secondary dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Sort
+              </button>
+              <div class="dropdown-menu mx-1">
+                <button
+                  (click)="changeFilter('orderAsc')"
+                  class="dropdown-item"
+                >
+                  Price: Low to High
+                </button>
+                <button
+                  (click)="changeFilter('orderDesc')"
+                  class="dropdown-item"
+                >
+                  Price: High to Low
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <ng-container *ngIf="products !== []">
+          <div
+            class="col-md-4"
+            *ngFor="let product of products | filterBy : searchQuery"
+          >
+            <div class="card mb-5 productCard">
+              <div class="productImage">
+                <img
+                  [src]="product.image"
+                  class="card-img-top"
+                  [alt]="product.name"
+                />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title productTitle">
+                  <a>{{ product.name | titlecase }}</a>
+                </h5>
+                <div class="productAction">
+                  <p>{{ product.price | currency : "INR" }}</p>
+                  <ng-container *ngIf="authCheck">
+                    <a class="btn btn-primary" (click)="addToCart(product.id)"
+                      >Add to cart</a
+                    >
+                  </ng-container>
+                  <!-- <a
+                    type="button"
+                    *ngIf="
+                      addProductToCart && currentProductAddToCart == product.id
+                    "
+                    class="btn btn-primary pe-none"
+                  >
+                    <span
+                      class="spinner-grow spinner-grow-sm me-2"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
+                    <span>adding...</span>
+                  </a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+    <app-loader [loading]="loading"></app-loader>
+  </div>
+</main>

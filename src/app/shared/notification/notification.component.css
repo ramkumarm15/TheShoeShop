@@ -1,0 +1,24 @@
+::ng-deep .mat-snack-bar-container {
+  background: transparent;
+  box-shadow: none;
+}
+
+/* ::ng-deep .alert-info {
+  background: rgb(0, 55, 104);
+  color: rgb(202, 253, 245);
+}
+
+::ng-deep .alert-success {
+  background: rgb(10, 85, 84);
+  color: rgb(216, 251, 222);
+}
+
+::ng-deep .alert-warning {
+  background: rgb(122, 65, 0);
+  color: rgb(255, 245, 204);
+}
+
+::ng-deep .alert-danger {
+  background: rgb(122, 9, 22);
+  color: rgb(255, 233, 213);
+} */

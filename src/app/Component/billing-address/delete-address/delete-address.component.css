@@ -1,0 +1,5 @@
+::ng-deep .mat-dialog-container{
+  background-color: transparent;
+  box-shadow: none;
+  padding: 0;
+}

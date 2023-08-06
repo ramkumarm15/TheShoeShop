@@ -1,0 +1,37 @@
+.address {
+  margin-bottom: 18px;
+  min-height: 220px;
+}
+
+.address.addnew .card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.default-badge {
+  font-size: 0.85rem;
+}
+
+.addressData h5 {
+  line-height: 1.5;
+}
+
+.addressData h5 span {
+  color: rgb(145, 158, 171);
+  margin-right: 12px;
+}
+
+.addressAction {
+  margin-top: 12px;
+}
+
+.address.addnew .card{
+  cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+  .addnew {
+    display: none;
+  }
+}

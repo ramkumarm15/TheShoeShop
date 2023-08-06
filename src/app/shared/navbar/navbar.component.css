@@ -1,0 +1,9 @@
+::ng-deep .dropdown-toggle::after {
+  font-family: "Bootstrap-icons";
+  content: "\F282";
+  font-size: 0.7rem !important;
+}
+
+.dropdown-item{
+  cursor: pointer;
+}

@@ -1,0 +1,252 @@
+<main class="mt-5 pt-5">
+  <div class="container">
+    <div
+      class="row min-vh-100 d-flex justify-content-center align-items-center"
+    >
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="text-center mb-4">Create your account</h3>
+            <form
+              class="form row"
+              [formGroup]="registerForm"
+              (ngSubmit)="formSubmit()"
+            >
+              <div class="col-md-6">
+                <div class="form-group mb-3">
+                  <label for="username" class="form-label">Username</label>
+                  <input
+                    class="form-control"
+                    placeholder="Hey, what's your username?"
+                    name="username"
+                    id="username"
+                    formControlName="username"
+                    required
+                    (blur)="maxLengthCheck($event)"
+                    [ngClass]="{
+                      'is-invalid':
+                        registerForm.controls['username'].invalid &&
+                        (registerForm.controls['username'].dirty ||
+                          registerForm.controls['username'].touched),
+                      'is-valid': registerForm.controls['username'].valid
+                    }"
+                  />
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="(registerForm.controls['username'].dirty 
+                    || registerForm.controls['username'].touched 
+                    || registerForm.invalid) 
+                    && registerForm.controls['username'].errors?.['required']"
+                  >
+                    Username is required
+                  </div>
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="(registerForm.controls['username'].dirty || registerForm.invalid) && registerForm.controls['username'].errors?.['requiredLength']"
+                  >
+                    Minimum length is 8 characters
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="password?"
+                    name="password"
+                    id="password"
+                    formControlName="password"
+                    required
+                    [ngClass]="{
+                      'is-invalid':
+                        registerForm.controls['password'].invalid &&
+                        (registerForm.controls['password'].dirty ||
+                          registerForm.controls['password'].touched),
+                      'is-valid': registerForm.controls['password'].valid
+                    }"
+                  />
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="(registerForm.controls['password'].dirty || registerForm.controls['password'].touched || registerForm.invalid) && registerForm.controls['password'].errors?.['required']"
+                  >
+                    Password is required
+                  </div>
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="(registerForm.controls['password'].touched || registerForm.invalid)&& registerForm.controls['password'].errors?.['minlength']"
+                  >
+                    Minimum length is 8 characters
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Your name please?"
+                    name="name"
+                    id="name"
+                    formControlName="name"
+                    required
+                    [ngClass]="{
+                      'is-invalid':
+                        registerForm.controls['name'].invalid &&
+                        (registerForm.controls['name'].dirty ||
+                          registerForm.controls['name'].touched),
+                      'is-valid': registerForm.controls['name'].valid
+                    }"
+                  />
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="(registerForm.controls['name'].dirty || registerForm.controls['name'].touched || registerForm.invalid) && registerForm.controls['name'].errors?.['required']"
+                  >
+                    Name is required
+                  </div>
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="(registerForm.controls['name'].touched || registerForm.invalid)&& registerForm.controls['name'].errors?.['minlength']"
+                  >
+                    Minimum length is 8 characters
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group mb-3">
+                  <label for="city" class="form-label">City</label>
+                  <input
+                    class="form-control"
+                    placeholder="Hey, what's your city name?"
+                    name="city"
+                    id="city"
+                    formControlName="city"
+                    required
+                    [ngClass]="{
+                      'is-invalid':
+                        registerForm.controls['city'].invalid &&
+                        (registerForm.controls['city'].dirty ||
+                          registerForm.controls['city'].touched),
+                      'is-valid': registerForm.controls['city'].valid
+                    }"
+                  />
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="(registerForm.controls['city'].dirty || registerForm.controls['city'].touched || registerForm.invalid) && registerForm.controls['city'].errors?.['required']"
+                  >
+                    City is required
+                  </div>
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="(registerForm.controls['city'].dirty || registerForm.invalid) && registerForm.controls['city'].errors?.['minlength']"
+                  >
+                    Minimum length is 8 characters
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group mb-3">
+                  <label for="emai" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Your email address?"
+                    name="emailAddress"
+                    id="emailAddress"
+                    formControlName="emailAddress"
+                    required
+                    [ngClass]="{
+                      'is-invalid':
+                        registerForm.controls['emailAddress'].invalid &&
+                        (registerForm.controls['emailAddress'].dirty ||
+                          registerForm.controls['emailAddress'].touched),
+                      '': registerForm.controls['emailAddress'].valid
+                    }"
+                  />
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="(registerForm.controls['emailAddress'].dirty || registerForm.controls['emailAddress'].touched || registerForm.invalid) && registerForm.controls['emailAddress'].errors?.['required']"
+                  >
+                    Email Address is required
+                  </div>
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="(registerForm.controls['emailAddress'].touched || registerForm.invalid)&& registerForm.controls['emailAddress'].errors?.['minlength']"
+                  >
+                    Minimum length is 8 characters
+                  </div>
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="(registerForm.controls['emailAddress'].touched || registerForm.invalid)&& registerForm.controls['emailAddress'].errors?.['email']"
+                  >
+                    Format is incorrect
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <label for="about" class="form-label">About</label>
+                <textarea
+                  class="form-control"
+                  name="about"
+                  id="about"
+                  formControlName="about"
+                  rows="5"
+                  cols="10"
+                  maxlength="200"
+                  [ngClass]="{
+                    'is-invalid':
+                      registerForm.controls['about'].invalid &&
+                      (registerForm.controls['about'].dirty ||
+                        registerForm.controls['about'].touched),
+                    '': registerForm.controls['about'].valid
+                  }"
+                ></textarea>
+                <span class="form-text"> Maximum 200 characters </span>
+                <div
+                  class="invalid-feedback"
+                  *ngIf="(registerForm.controls['about'].dirty || registerForm.controls['about'].touched || registerForm.invalid) && registerForm.controls['about'].errors?.['required']"
+                >
+                  About is required
+                </div>
+                <div
+                  class="invalid-feedback"
+                  *ngIf="(registerForm.controls['about'].dirty || registerForm.invalid) && registerForm.controls['about'].errors?.['maxlength']"
+                >
+                  Maximum length is 200 characters
+                </div>
+                <div
+                  class="invalid-feedback"
+                  *ngIf="(registerForm.controls['about'].dirty || registerForm.invalid) && registerForm.controls['about'].errors?.['minlength']"
+                >
+                  Minimum length is 8 characters
+                </div>
+              </div>
+              <div class="col-12 mt-2">
+                <div class="form-group mb-3 mt-3 text-center">
+                  <button type="submit" *ngIf="!submitted" class="btn btn-lg btn-primary">
+                    Create Account
+                  </button>
+                  <button
+                  type="button"
+                  *ngIf="submitted"
+                  class="btn btn-primary pe-none"
+                >
+                  <span
+                    class="spinner-grow spinner-grow-sm me-2"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>
+                  <span>logging in you...</span>
+                </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,7 @@
+<div [class]="getClass()" role="alert" [ngSwitch]="data.type">
+  <i class="bi bi-check-circle me-2" *ngSwitchCase="'success'"></i>
+  <i class="bi bi-info-circle me-2" *ngSwitchCase="'info'"></i>
+  <i class="bi bi-x-octagon me-2" *ngSwitchCase="'danger'"></i>
+  <i class="bi bi-exclamation-triangle me-2" *ngSwitchCase="'warning'"></i>
+  {{ data.message }}
+</div>

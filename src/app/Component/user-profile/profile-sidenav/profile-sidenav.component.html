@@ -1,0 +1,43 @@
+<div class="position-sticky mx-md-3 mt-md-5 pt-md-5 pt-sm-3 top-0">
+  <button
+    type="button"
+    class="btn btn-secondary w-100 d-md-none mt-n2 mb-3 collapsed"
+    data-bs-toggle="collapse"
+    data-bs-target="#account-menu"
+    aria-expanded="false"
+  >
+    <i class="bi bi-person-vcard me-1"></i>
+    Menu
+    <i class="bi bi-chevron-down ms-1"></i>
+  </button>
+  <div
+    id="account-menu"
+    class="list-group list-group-flush d-md-block collapse"
+  >
+    <div class="pt-md-5 pt-sm-2">
+      <div class="list-group list-group-flush mt-md-5 mt-sm-2">
+        <a
+          class="list-group-item list-group-item-action"
+          [routerLink]="['/profile']"
+          routerLinkActive="active shadow-none"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Account Details</a
+        >
+        <a
+          class="list-group-item list-group-item-action"
+          [routerLink]="['/profile/change-password']"
+          routerLinkActive="active shadow-none"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Security</a
+        >
+        <a
+          class="list-group-item list-group-item-action"
+          [routerLink]="['/profile/address']"
+          routerLinkActive="active shadow-none"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Address</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

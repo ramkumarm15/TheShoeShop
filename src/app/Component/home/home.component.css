@@ -1,0 +1,34 @@
+.productCard{
+  border-radius: 18px;
+}
+
+.productImage{
+  padding: 12px;
+}
+
+.productImage img{
+  border-radius: 8px;
+}
+
+.filterAction{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.productTitle a:hover{
+  text-decoration: underline #fff 1px;
+  cursor: pointer;
+}
+
+.productAction{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.productAction p{
+  margin:0;
+}

@@ -1,0 +1,117 @@
+.mat-form-field {
+  display: block;
+}
+
+.mat-stroked-button {
+  background: rgb(33, 43, 54);
+  color: rgb(255, 255, 255);
+}
+
+.welcomeText {
+  font-weight: 700;
+  text-align: center;
+}
+
+.auth-fluid-right {
+  display: none;
+  color: rgb(33, 43, 54);
+  background: linear-gradient(
+    rgba(249, 250, 251, 0.9),
+    rgba(249, 250, 251, 0.9)
+  );
+  padding: 0;
+}
+
+@media (max-width: 676px) {
+  .card {
+    box-shadow: none;
+    border: none;
+  }
+}
+
+@media (min-width: 900px) {
+  .auth-fluid-right {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.auth-fluid-form-box {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.auth-fluid-form-box .formCard {
+  width: 100%;
+  text-align: center;
+  /* height: 100; */
+  padding: 70px 40px 0px 40px;
+  margin: 30px;
+}
+
+.auth-fluid-form-box .formCard h3 {
+  margin: 0 0 30px;
+  line-height: 1.5;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .auth-fluid-form-box {
+    max-width: 620px;
+    width: 780px;
+    padding: 0;
+  }
+
+  .auth-fluid-form-box .formCard h3 {
+    font-size: 1.5rem;
+  }
+}
+
+button.mat-stroked-button {
+  height: 48px;
+  padding: 8px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.mat-stroked-button,
+.mat-stroked-button:hover {
+  background: rgb(0, 171, 85);
+  color: rgb(255, 255, 255);
+}
+
+a.registerBtn {
+  font-weight: 600;
+  margin: 0 0 0 4px;
+}
+
+a.registerBtn,
+a.registerBtn:hover {
+  color: rgb(0, 171, 85);
+}
+
+.auth-fluid .auth-fluid-form-box {
+  background: rgb(33, 43, 54);
+}
+
+.authPage {
+  margin-top: 6rem;
+}
+
+.loginForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}

@@ -1,0 +1,23 @@
+body::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: #0b0f19;
+    border-radius: 8px;
+  }
+  
+  .breadcrumb-item + .breadcrumb-item::before {
+    font-family: "Bootstrap-icons";
+    content: "\F280";
+    font-size: 12px;
+  }
+  
+  .min-vh-80 {
+    min-height: 100vh;
+  }
+  
+  .cdk-overlay-container {
+    z-index: 1033;
+  }
+  

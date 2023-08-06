@@ -1,0 +1,170 @@
+<div class="p-0 m-0">
+  <div class="card">
+    <div class="card-body">
+      <form class="needs-validation pb-3 pb-lg-4" novalidate="" [formGroup]="updateBillingForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-sm-12 mb-4">
+            <label for="fn" class="form-label fs-base">Name</label>
+            <input type="text" class="form-control form-control-lg" name="billingName" id="billingName"
+              formControlName="billingName" required [ngClass]="{
+                'is-invalid':
+                  updateBillingForm.controls['billingName'].invalid &&
+                  (updateBillingForm.controls['billingName'].dirty ||
+                    updateBillingForm.controls['billingName'].touched),
+                '': updateBillingForm.controls['billingName'].valid
+              }" />
+
+            <div class="invalid-feedback" *ngIf="(updateBillingForm.controls['billingName'].touched || updateBillingForm.invalid)
+              && updateBillingForm.controls['billingName'].errors?.['required']">
+              This field is required
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 mb-4">
+            <label for="address1" class="form-label fs-base">Address 1</label>
+            <input type="text" class="form-control form-control-lg" name="address1" id="address1"
+              formControlName="address1" required [ngClass]="{
+                'is-invalid':
+                  updateBillingForm.controls['address1'].invalid &&
+                  (updateBillingForm.controls['address1'].dirty ||
+                    updateBillingForm.controls['address1'].touched),
+                '': updateBillingForm.controls['address1'].valid
+              }" />
+
+            <div class="invalid-feedback" *ngIf="(updateBillingForm.controls['address1'].touched 
+              || updateBillingForm.invalid)
+              && updateBillingForm.controls['address1'].errors?.['required']">
+              This field is required
+            </div>
+          </div>
+          <div class="col-sm-6 mb-4">
+            <label for="address1" class="form-label fs-base">Address 1</label>
+            <input type="text" class="form-control form-control-lg" name="address1" id="address1"
+              formControlName="address1" required [ngClass]="{
+                'is-invalid':
+                  updateBillingForm.controls['address1'].invalid &&
+                  (updateBillingForm.controls['address1'].dirty ||
+                    updateBillingForm.controls['address1'].touched),
+                '': updateBillingForm.controls['address1'].valid
+              }" />
+
+            <div class="invalid-feedback" *ngIf="(updateBillingForm.controls['address1'].touched 
+              || updateBillingForm.invalid)
+              && updateBillingForm.controls['address1'].errors?.['required']">
+              This field is required
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 mb-4">
+            <label for="city" class="form-label fs-base">City</label>
+            <input type="text" class="form-control form-control-lg" name="city" id="city" formControlName="city"
+              required [ngClass]="{
+                'is-invalid':
+                  updateBillingForm.controls['city'].invalid &&
+                  (updateBillingForm.controls['city'].dirty ||
+                    updateBillingForm.controls['city'].touched),
+                '': updateBillingForm.controls['city'].valid
+              }" />
+
+            <div class="invalid-feedback" *ngIf="(updateBillingForm.controls['city'].touched 
+              || updateBillingForm.invalid)
+              && updateBillingForm.controls['city'].errors?.['required']">
+              This field is required
+            </div>
+          </div>
+          <div class="col-sm-6 mb-4">
+            <label for="state" class="form-label fs-base">State</label>
+            <input type="text" class="form-control form-control-lg" name="state" id="state" formControlName="state"
+              required [ngClass]="{
+                'is-invalid':
+                  updateBillingForm.controls['state'].invalid &&
+                  (updateBillingForm.controls['state'].dirty ||
+                    updateBillingForm.controls['state'].touched),
+                '': updateBillingForm.controls['state'].valid
+              }" />
+
+            <div class="invalid-feedback" *ngIf="(updateBillingForm.controls['state'].touched 
+              || updateBillingForm.invalid)
+              && updateBillingForm.controls['state'].errors?.['required']">
+              This field is required
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 mb-4">
+            <label for="postalCode" class="form-label fs-base">Postal Code</label>
+            <input type="text" class="form-control form-control-lg" name="postalCode" id="postalCode"
+              formControlName="postalCode" required [ngClass]="{
+                'is-invalid':
+                  updateBillingForm.controls['postalCode'].invalid &&
+                  (updateBillingForm.controls['postalCode'].dirty ||
+                    updateBillingForm.controls['postalCode'].touched),
+                '': updateBillingForm.controls['postalCode'].valid
+              }" />
+
+            <div class="invalid-feedback" *ngIf="(updateBillingForm.controls['postalCode'].touched 
+              || updateBillingForm.invalid)
+              && updateBillingForm.controls['postalCode'].errors?.['required']">
+              This field is required
+            </div>
+          </div>
+          <div class="col-sm-6 mb-4">
+            <label for="mobileNumber" class="form-label fs-base">Mobile Number</label>
+            <input type="text" class="form-control form-control-lg" name="mobileNumber" id="mobileNumber"
+              formControlName="mobileNumber" required [ngClass]="{
+                'is-invalid':
+                  updateBillingForm.controls['mobileNumber'].invalid &&
+                  (updateBillingForm.controls['mobileNumber'].dirty ||
+                    updateBillingForm.controls['mobileNumber'].touched),
+                '': updateBillingForm.controls['mobileNumber'].valid
+              }" />
+
+            <div class="invalid-feedback" *ngIf="(updateBillingForm.controls['mobileNumber'].touched 
+              || updateBillingForm.invalid)
+              && updateBillingForm.controls['mobileNumber'].errors?.['required']">
+              This field is required
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 mb-4">
+            <input type="checkbox" class="form-check-input me-2" name="defaultAddress" id="defaultAddress"
+              formControlName="defaultAddress" required [ngClass]="{
+                'is-invalid':
+                  updateBillingForm.controls['defaultAddress'].invalid &&
+                  (updateBillingForm.controls['defaultAddress'].dirty ||
+                    updateBillingForm.controls['defaultAddress'].touched),
+                '': updateBillingForm.controls['defaultAddress'].valid
+              }" />
+            <label for="defaultAddress" class="form-check-label">Set as default</label>
+            <div class="invalid-feedback" *ngIf="(updateBillingForm.controls['defaultAddress'].touched 
+              || updateBillingForm.invalid)
+              && updateBillingForm.controls['defaultAddress'].errors?.['required']">
+              This field is required
+            </div>
+          </div>
+        </div>
+        <mat-dialog-actions class="float-end">
+          <div class="row">
+            <div class="col-md-6 col-6">
+              <div class="form-group">
+                <button type="button" class="btn btn-outline-secondary btn-sm" (click)="onCancel()">
+                  Cancel
+                </button>
+              </div>
+            </div>
+            <div class="col-md-6 col-6">
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-sm">
+                  Save
+                </button>
+              </div>
+            </div>
+          </div>
+        </mat-dialog-actions>
+      </form>
+    </div>
+  </div>
+</div>

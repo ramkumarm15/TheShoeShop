@@ -1,0 +1,79 @@
+<header class="navbar navbar-expand-lg bg-light shadow-sm fixed-top">
+  <div class="container">
+    <a [routerLink]="['']" class="navbar-brand">
+      <h3>the shoe boutique</h3>
+    </a>
+    <ng-container *ngIf="authCheck; else loginAction">
+      <div class="nav dropdown d-block order-lg-3 ms-4">
+        <a href="#" class="d-flex nav-link p-0" data-bs-toggle="dropdown">
+          <img
+            src="https://res.cloudinary.com/ramkumarm15/image/upload/v1666682926/auditmanagement/assets/images/avatar_default_yemi8x.jpg"
+            class="rounded-circle"
+            width="32"
+            alt="Avatar"
+          />
+          <div class="d-none d-sm-block ps-2">
+            <div class="fs-xs lh-1 opacity-60">Hello,</div>
+            <div class="fs-sm dropdown-toggle">
+              {{ getPreferredName | titlecase }}
+            </div>
+          </div>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end my-1" style="width: 14rem">
+          <li>
+            <a
+              class="dropdown-item d-flex align-items-center"
+              [routerLink]="['/profile']"
+            >
+              <i class="bi bi-person-circle fs-base opacity-60 me-2"></i>
+              Profile
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="dropdown-item d-flex align-items-center"
+              [routerLink]="['/user/cart']"
+            >
+              <i class="bi bi-cart fs-base opacity-60 me-2"></i>
+              Cart
+              <span
+                class="bg-success rounded-circle mt-n2 ms-1"
+                style="width: 5px; height: 5px"
+              ></span>
+              <span class="ms-auto fs-xs text-muted">{{ cartItemCount }}</span>
+            </a>
+          </li>
+          <li class="dropdown-divider"></li>
+          <li>
+            <a
+              class="dropdown-item d-flex align-items-center"
+              (click)="logout()"
+            >
+              <i class="bi bi-box-arrow-left fs-base opacity-60 me-2"></i>
+              Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
+    <ng-template #loginAction>
+      <div>
+        <a
+          [routerLink]="['/login']"
+          class="btn btn-secondary btn-sm fs-sm rounded my-3 mx-2 my-lg-0"
+        >
+          <i class="bi bi-box-arrow-right fs-lg me-2"></i>
+          Login
+        </a>
+        <a
+          [routerLink]="['/register']"
+          class="btn btn-primary btn-sm fs-sm rounded my-3 mx-2 my-lg-0"
+        >
+          <i class="bi bi-person-circle fs-lg me-2"></i>
+          Sign up
+        </a>
+      </div>
+    </ng-template>
+  </div>
+</header>

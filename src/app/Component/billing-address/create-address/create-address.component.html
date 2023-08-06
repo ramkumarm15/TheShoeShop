@@ -1,0 +1,275 @@
+<div class="p-0 m-0">
+  <div class="card">
+    <div class="card-body">
+      <form
+        class="needs-validation pb-3 pb-lg-4"
+        novalidate=""
+        [formGroup]="createBillingForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="row">
+          <div class="col-sm-12 mb-4">
+            <label for="fn" class="form-label fs-base">Name</label>
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              name="billingName"
+              id="billingName"
+              formControlName="billingName"
+              required
+              [ngClass]="{
+                'is-invalid':
+                  createBillingForm.controls['billingName'].invalid &&
+                  (createBillingForm.controls['billingName'].dirty ||
+                    createBillingForm.controls['billingName'].touched),
+                '': createBillingForm.controls['billingName'].valid
+              }"
+            />
+
+            <div
+              class="invalid-feedback"
+              *ngIf="(createBillingForm.controls['billingName'].touched || createBillingForm.invalid)
+              && createBillingForm.controls['billingName'].errors?.['required']"
+            >
+              This field is required
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 mb-4">
+            <label for="address1" class="form-label fs-base">Address 1</label>
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              name="address1"
+              id="address1"
+              formControlName="address1"
+              required
+              [ngClass]="{
+                'is-invalid':
+                  createBillingForm.controls['address1'].invalid &&
+                  (createBillingForm.controls['address1'].dirty ||
+                    createBillingForm.controls['address1'].touched),
+                '': createBillingForm.controls['address1'].valid
+              }"
+            />
+
+            <div
+              class="invalid-feedback"
+              *ngIf="(createBillingForm.controls['address1'].touched 
+              || createBillingForm.invalid)
+              && createBillingForm.controls['address1'].errors?.['required']"
+            >
+              This field is required
+            </div>
+          </div>
+          <div class="col-sm-6 mb-4">
+            <label for="address2" class="form-label fs-base">Address 2</label>
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              name="address2"
+              id="address2"
+              formControlName="address2"
+              required
+              [ngClass]="{
+                'is-invalid':
+                  createBillingForm.controls['address2'].invalid &&
+                  (createBillingForm.controls['address2'].dirty ||
+                    createBillingForm.controls['address2'].touched),
+                '': createBillingForm.controls['address2'].valid
+              }"
+            />
+
+            <div
+              class="invalid-feedback"
+              *ngIf="(createBillingForm.controls['address2'].touched 
+              || createBillingForm.invalid)
+              && createBillingForm.controls['address2'].errors?.['required']"
+            >
+              This field is required
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 mb-4">
+            <label for="city" class="form-label fs-base">City</label>
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              name="city"
+              id="city"
+              formControlName="city"
+              required
+              [ngClass]="{
+                'is-invalid':
+                  createBillingForm.controls['city'].invalid &&
+                  (createBillingForm.controls['city'].dirty ||
+                    createBillingForm.controls['city'].touched),
+                '': createBillingForm.controls['city'].valid
+              }"
+            />
+
+            <div
+              class="invalid-feedback"
+              *ngIf="(createBillingForm.controls['city'].touched 
+              || createBillingForm.invalid)
+              && createBillingForm.controls['city'].errors?.['required']"
+            >
+              This field is required
+            </div>
+          </div>
+          <div class="col-sm-6 mb-4">
+            <label for="state" class="form-label fs-base">State</label>
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              name="state"
+              id="state"
+              formControlName="state"
+              required
+              [ngClass]="{
+                'is-invalid':
+                  createBillingForm.controls['state'].invalid &&
+                  (createBillingForm.controls['state'].dirty ||
+                    createBillingForm.controls['state'].touched),
+                '': createBillingForm.controls['state'].valid
+              }"
+            />
+
+            <div
+              class="invalid-feedback"
+              *ngIf="(createBillingForm.controls['state'].touched 
+              || createBillingForm.invalid)
+              && createBillingForm.controls['state'].errors?.['required']"
+            >
+              This field is required
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 mb-4">
+            <label for="postalCode" class="form-label fs-base"
+              >Postal Code</label
+            >
+            <input
+              type="number"
+              class="form-control form-control-lg"
+              name="postalCode"
+              id="postalCode"
+              formControlName="postalCode"
+              minlength="6"
+              maxlength="6"
+              required
+              [ngClass]="{
+                'is-invalid':
+                  createBillingForm.controls['postalCode'].invalid &&
+                  (createBillingForm.controls['postalCode'].dirty ||
+                    createBillingForm.controls['postalCode'].touched),
+                '': createBillingForm.controls['postalCode'].valid
+              }"
+            />
+
+            <div
+              class="invalid-feedback"
+              *ngIf="(createBillingForm.controls['postalCode'].touched 
+              || createBillingForm.invalid)
+              && createBillingForm.controls['postalCode'].errors?.['required']"
+            >
+              This field is required
+            </div>
+            <div
+              class="invalid-feedback"
+              *ngIf="(createBillingForm.controls['postalCode'].touched 
+              || createBillingForm.invalid)
+              && createBillingForm.controls['postalCode'].errors?.['maxLength']"
+            >
+              This field is required
+            </div>
+          </div>
+          <div class="col-sm-6 mb-4">
+            <label for="mobileNumber" class="form-label fs-base"
+              >Mobile Number</label
+            >
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              name="mobileNumber"
+              id="mobileNumber"
+              formControlName="mobileNumber"
+              required
+              max="10"
+              (input)="mobileNumberLengthCheck($event)"
+              [ngClass]="{
+                'is-invalid':
+                  createBillingForm.controls['mobileNumber'].invalid &&
+                  (createBillingForm.controls['mobileNumber'].dirty ||
+                    createBillingForm.controls['mobileNumber'].touched),
+                '': createBillingForm.controls['mobileNumber'].valid
+              }"
+            />
+
+            <div
+              class="invalid-feedback"
+              *ngIf="(createBillingForm.controls['mobileNumber'].touched 
+              || createBillingForm.invalid)
+              && createBillingForm.controls['mobileNumber'].errors?.['required']"
+            >
+              This field is required
+            </div>
+            <div
+              class="invalid-feedback"
+              *ngIf="( createBillingForm.controls['mobileNumber'].touched || createBillingForm.invalid) && createBillingForm.controls['mobileNumber'].errors?.['requiredLength']"
+            >
+              Mobile number must be 10 digit
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 mb-4">
+            <input
+              type="checkbox"
+              class="form-check-input me-2"
+              name="defaultAddress"
+              id="defaultAddress"
+              formControlName="defaultAddress"
+              required
+              [ngClass]="{
+                'is-invalid':
+                  createBillingForm.controls['defaultAddress'].invalid &&
+                  (createBillingForm.controls['defaultAddress'].dirty ||
+                    createBillingForm.controls['defaultAddress'].touched),
+                '': createBillingForm.controls['defaultAddress'].valid
+              }"
+            />
+            <label for="defaultAddress" class="form-check-label"
+              >Set as default</label
+            >
+          </div>
+        </div>
+        <mat-dialog-actions class="float-end">
+          <div class="row">
+            <div class="col-md-6 col-6">
+              <div class="form-group">
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary btn-sm"
+                  (click)="onCancel()"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+            <div class="col-md-6 col-6">
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-sm">
+                  Save
+                </button>
+              </div>
+            </div>
+          </div>
+        </mat-dialog-actions>
+      </form>
+    </div>
+  </div>
+</div>
