@@ -41,12 +41,16 @@ export class HomeComponent implements OnInit {
   loading: boolean = true;
   addProductToCart: boolean = false;
   currentProductAddToCart!: number;
+  cartItemList!: Cart;
 
   ngOnInit(): void {
     this.documentTitle.setTitle(this.pageTitle);
     this.getProducts();
     if (this.authCheck) {
       this.getCart();
+      this.cartService.cartDataSubject.subscribe((c) => {
+        this.cartItemList = c;
+      });
     }
   }
 
@@ -124,5 +128,16 @@ export class HomeComponent implements OnInit {
 
   get hasAdminAccess(): boolean {
     return this.auth.getRole() === 'Admin';
+  }
+
+  checkProductInCartList(id: number): boolean {
+    let containsInCart: boolean = false;
+    this.cartItemList.cartItemsList.forEach((c) => {
+      if (c.product.id === id) {
+        containsInCart = true;
+      }
+    });
+    console.log(containsInCart)
+    return containsInCart;
   }
 }

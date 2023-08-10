@@ -78,24 +78,27 @@
                 <div class="productAction">
                   <p>{{ product.price | currency : "INR" }}</p>
                   <ng-container *ngIf="authCheck && !hasAdminAccess">
-                    <a class="btn btn-primary" (click)="addToCart(product.id)"
+                    <a
+                      class="btn btn-sm btn-primary"
+                      *ngIf="!checkProductInCartList(product.id)"
+                      (click)="addToCart(product.id)"
                       >Add to cart</a
                     >
                   </ng-container>
                   <ng-container *ngIf="authCheck && hasAdminAccess">
                     <div>
                       <a
-                      class="btn btn-sm me-1 btn-primary"
-                      [routerLink]="['admin/product/update', product.id]"
-                    >
-                      <i class="bi bi-pencil-square"></i>
-                    </a>
-                    <a
-                      class="btn btn-sm btn-danger"
-                      [routerLink]="['admin/product/update', product.id]"
-                    >
-                      <i class="bi bi-trash"></i>
-                    </a>
+                        class="btn btn-sm me-1 btn-primary"
+                        [routerLink]="['admin/product/update', product.id]"
+                      >
+                        <i class="bi bi-pencil-square"></i>
+                      </a>
+                      <a
+                        class="btn btn-sm btn-danger"
+                        [routerLink]="['admin/product/update', product.id]"
+                      >
+                        <i class="bi bi-trash"></i>
+                      </a>
                     </div>
                   </ng-container>
                 </div>
