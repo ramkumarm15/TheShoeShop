@@ -8,6 +8,8 @@ import { CartComponent } from './Component/cart/cart.component';
 import { UserProfileComponent } from './Component/user-profile/user-profile.component';
 import { ChangePasswordComponent } from './Component/change-password/change-password.component';
 import { BillingAddressComponent } from './Component/billing-address/billing-address.component';
+import { UpdateProductComponent } from './Component/Admin/update-product/update-product.component';
+import { AdminGuard } from './Guard/admin.guard';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -41,6 +43,16 @@ export const routes: Routes = [
     path: 'user/cart',
     component: CartComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/product',
+    children: [
+      {
+        path: 'update/:id',
+        component: UpdateProductComponent,
+        canActivate: [AdminGuard],
+      },
+    ],
   },
 ];
 

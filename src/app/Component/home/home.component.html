@@ -1,5 +1,5 @@
 <main class="home mt-4">
-  <div class="container mt-5 pt-5">
+  <div class="container">
     <ng-container *ngIf="!loading">
       <div class="row mb-3">
         <div class="col-12 d-flex justify-content-between align-items-center">
@@ -77,25 +77,27 @@
                 </h5>
                 <div class="productAction">
                   <p>{{ product.price | currency : "INR" }}</p>
-                  <ng-container *ngIf="authCheck">
+                  <ng-container *ngIf="authCheck && !hasAdminAccess">
                     <a class="btn btn-primary" (click)="addToCart(product.id)"
                       >Add to cart</a
                     >
                   </ng-container>
-                  <!-- <a
-                    type="button"
-                    *ngIf="
-                      addProductToCart && currentProductAddToCart == product.id
-                    "
-                    class="btn btn-primary pe-none"
-                  >
-                    <span
-                      class="spinner-grow spinner-grow-sm me-2"
-                      role="status"
-                      aria-hidden="true"
-                    ></span>
-                    <span>adding...</span>
-                  </a> -->
+                  <ng-container *ngIf="authCheck && hasAdminAccess">
+                    <div>
+                      <a
+                      class="btn btn-sm me-1 btn-primary"
+                      [routerLink]="['admin/product/update', product.id]"
+                    >
+                      <i class="bi bi-pencil-square"></i>
+                    </a>
+                    <a
+                      class="btn btn-sm btn-danger"
+                      [routerLink]="['admin/product/update', product.id]"
+                    >
+                      <i class="bi bi-trash"></i>
+                    </a>
+                    </div>
+                  </ng-container>
                 </div>
               </div>
             </div>

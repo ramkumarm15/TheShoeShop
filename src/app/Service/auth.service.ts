@@ -82,4 +82,12 @@ export class AuthService {
     }
     return true;
   }
+
+  getRole(): string {
+    let token: any = localStorage.getItem('access_token')?.toString();
+    let ROLE_OBJ_KEY =
+      'http://schemas.microsoft.com/ws/2008/06/identity/claims/role';
+    let decodedToken = this.jwt.decodeToken(token);
+    return decodedToken[ROLE_OBJ_KEY];
+  }
 }

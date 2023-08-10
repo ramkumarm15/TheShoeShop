@@ -40,6 +40,7 @@ import { UpdateAddressComponent } from './Component/billing-address/update-addre
 import { HttpReqInterceptor } from './Interceptor/httpreq.interceptor';
 import { ErrorInterceptor } from './Interceptor/error.interceptor';
 import { LoaderComponent } from './Component/loader/loader.component';
+import { UpdateProductComponent } from './Component/Admin/update-product/update-product.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { LoaderComponent } from './Component/loader/loader.component';
     UpdateAddressComponent,
     DeleteAddressComponent,
     LoaderComponent,
+    UpdateProductComponent,
   ],
   imports: [
     BrowserModule,

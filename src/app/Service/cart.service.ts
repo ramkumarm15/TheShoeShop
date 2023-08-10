@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { Cart, CartPayload, CartResponse } from '../Model/cart';
 import { environment } from '../../environments/environment';
 
@@ -17,10 +17,14 @@ export class CartService {
 
   private _cartCount: number = 0;
 
+  cartDataSubject!: BehaviorSubject<Cart>;
+
   constructor(private http: HttpClient) {
     this.cartDataChange.subscribe((value) => {
       this._cartData = value;
     });
+
+    this.cartDataSubject = new BehaviorSubject(this.cartData);
   }
 
   /**
@@ -67,5 +71,8 @@ export class CartService {
   public set cartCount(value: number) {
     this._cartCount = value;
   }
-  
+
+  cartDataNextSubject(data: Cart) {
+    this.cartDataSubject.next(data);
+  }
 }

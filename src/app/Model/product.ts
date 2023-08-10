@@ -9,3 +9,7 @@ export interface Product {
   createdAt: Date;
   updatedAt: Date;
 }
+
+export interface ProductResponse {
+  message: string;
+}

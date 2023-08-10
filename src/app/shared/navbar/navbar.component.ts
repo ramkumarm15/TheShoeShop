@@ -17,6 +17,7 @@ import { UserService } from 'src/app/Service/user.service';
 export class NavbarComponent implements OnInit {
   name: string = '';
   id: number = 0;
+  cartItemTotal: number = 0;
 
   constructor(
     private user: UserService,
@@ -25,9 +26,11 @@ export class NavbarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.cart.cartDataSubject.subscribe((c) => {
+      this.cartItemCount = c.cartItemsList.length;
+    });
   }
 
-  
   get getPreferredName(): string {
     return this.user.preferredUserName;
   }
@@ -37,7 +40,10 @@ export class NavbarComponent implements OnInit {
   }
 
   get cartItemCount(): number {
-    return this.cart.cartData.cartItemsList.length;
+    return this.cartItemTotal;
+  }
+  set cartItemCount(value) {
+    this.cartItemTotal = value;
   }
 
   logout(): void {

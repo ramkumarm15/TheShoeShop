@@ -75,9 +75,7 @@ export class HomeComponent implements OnInit {
   getCart() {
     this.cartService.getCart().subscribe({
       next: (response: Cart) => {
-        this.cartService.cartData = response;
-        this.cartService.cartCount = response.cartItemsList.length;
-        this.cartCount = response.cartItemsList.length;
+        this.cartService.cartDataNextSubject(response);
       },
     });
   }
@@ -107,7 +105,7 @@ export class HomeComponent implements OnInit {
 
   addToCart(productId: number) {
     this.addProductToCart = true;
-    this.currentProductAddToCart = productId
+    this.currentProductAddToCart = productId;
     const payload: CartPayload = {
       data: {
         productId,
@@ -122,5 +120,9 @@ export class HomeComponent implements OnInit {
         this.addProductToCart = false;
       },
     });
+  }
+
+  get hasAdminAccess(): boolean {
+    return this.auth.getRole() === 'Admin';
   }
 }
