@@ -1,110 +1,177 @@
 <main>
-    <div class="container">
-      <div
-        class="row min-vh-100 d-flex justify-content-center align-items-center"
-      >
-        <div class="col-lg-6">
-          <div class="card">
-            <div class="card-body">
-              <h3 class="text-center mb-4">Sign in to store</h3>
-              <form
-                class="form"
-                [formGroup]="updateProductForm"
-                (ngSubmit)="formSubmit()"
-              >
-                <div class="form-group mb-3">
-                  <label for="username" class="form-label">Username</label>
-                  <input
-                    class="form-control bg-transparent shadow-none"
-                    placeholder="Hey, what's your username?"
-                    name="username"
-                    id="username"
-                    formControlName="username"
-                    required
-                    [ngClass]="{
-                      'is-invalid':
-                        updateProductForm.controls['username'].invalid &&
-                        updateProductForm.controls['username'].touched,
-                      '': updateProductForm.controls['username'].valid
-                    }"
-                  />
-                  <div
-                    class="invalid-feedback"
-                    *ngIf="(updateProductForm.controls['username'].touched || updateProductForm.invalid) && updateProductForm.controls['username'].errors?.['required']"
-                  >
-                    Username is required
-                  </div>
-                  <div
-                    class="invalid-feedback"
-                    *ngIf="(updateProductForm.controls['username'].touched || updateProductForm.invalid) && updateProductForm.controls['username'].errors?.['minlength']"
-                  >
-                    Minimum length is 8 characters
-                  </div>
-                </div>
-                <div class="form-group mb-3">
-                  <label for="password" class="form-label">Password</label>
-                  <div class="input-group">
+  <div class="container">
+    <div
+      class="row min-vh-100 d-flex justify-content-center align-items-center"
+    >
+      <div class="col-lg-6">
+        <div class="card border-0">
+          <div class="card-body">
+            <h3 class="text-center mb-4">Update a Product</h3>
+            <form
+              class="form"
+              [formGroup]="updateProductForm"
+              (ngSubmit)="formSubmit()"
+            >
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group mb-3">
+                    <label for="name" class="form-label">Name</label>
                     <input
-                      type="text"
-                      class="form-control"
-                      placeholder="type your password 🙈"
-                      name="password"
-                      id="password"
-                      formControlName="password"
+                      class="form-control bg-transparent shadow-none"
+                      name="name"
+                      id="name"
+                      formControlName="name"
+                      (input)="populateNameInputValueToSlug($event)"
                       required
                       [ngClass]="{
                         'is-invalid':
-                          updateProductForm.controls['password'].invalid &&
-                          updateProductForm.controls['password'].touched,
-                        '': updateProductForm.controls['password'].valid
+                          updateProductForm.controls['name'].invalid &&
+                          updateProductForm.controls['name'].touched,
+                        '': updateProductForm.controls['name'].valid
                       }"
                     />
-
                     <div
                       class="invalid-feedback"
-                      *ngIf="(updateProductForm.controls['password'].touched 
-              || updateProductForm.controls['password'].invalid ) 
-              && updateProductForm.controls['password'].errors?.['required']"
+                      *ngIf="(updateProductForm.controls['name'].touched || updateProductForm.invalid) && updateProductForm.controls['name'].errors?.['required']"
                     >
                       This field is required
                     </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input
+                      class="form-control bg-transparent shadow-none"
+                      name="price"
+                      id="price"
+                      formControlName="price"
+                      required
+                      readonly
+                      [disabled]="true"
+                      [ngClass]="{
+                        'is-invalid':
+                          updateProductForm.controls['price'].invalid &&
+                          updateProductForm.controls['price'].touched,
+                        '': updateProductForm.controls['price'].valid
+                      }"
+                    />
                     <div
                       class="invalid-feedback"
-                      *ngIf="(updateProductForm.controls['password'].touched 
-              || updateProductForm.controls['password'].invalid ) 
-              && updateProductForm.controls['password'].errors?.['minlength']"
+                      *ngIf="(updateProductForm.controls['price'].touched || updateProductForm.invalid) && updateProductForm.controls['price'].errors?.['required']"
                     >
-                      Minimum length is 8 characters
+                      This field is required
                     </div>
                   </div>
                 </div>
-                <div class="form-group text-center mb-3">
-                  <button
-                    type="submit"
-                    *ngIf="!submitted"
-                    class="btn btn-primary"
-                    id="submit"
-                  >
-                    Login
-                  </button>
-                  <button
-                    type="button"
-                    *ngIf="submitted"
-                    class="btn btn-primary pe-none"
-                  >
-                    <span
-                      class="spinner-grow spinner-grow-sm me-2"
-                      role="status"
-                      aria-hidden="true"
-                    ></span>
-                    <span>logging in you...</span>
-                  </button>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input
+                      class="form-control bg-transparent shadow-none"
+                      placeholder="Hey, what's your name?"
+                      name="name"
+                      id="name"
+                      formControlName="name"
+                      required
+                      [ngClass]="{
+                        'is-invalid':
+                          updateProductForm.controls['name'].invalid &&
+                          updateProductForm.controls['name'].touched,
+                        '': updateProductForm.controls['name'].valid
+                      }"
+                    />
+                    <div
+                      class="invalid-feedback"
+                      *ngIf="(updateProductForm.controls['name'].touched || updateProductForm.invalid) && updateProductForm.controls['name'].errors?.['required']"
+                    >
+                      This field is required
+                    </div>
+                  </div>
                 </div>
-              </form>
-            </div>
+                <div class="col-6">
+                  <div class="form-group mb-3">
+                    <label for="image" class="form-label">Image</label>
+                    <input
+                      class="form-control bg-transparent shadow-none"
+                      name="image"
+                      id="image"
+                      formControlName="image"
+                      required
+                      readonly
+                      [disabled]="true"
+                      [ngClass]="{
+                        'is-invalid':
+                          updateProductForm.controls['image'].invalid &&
+                          updateProductForm.controls['image'].touched,
+                        '': updateProductForm.controls['image'].valid
+                      }"
+                    />
+                    <div
+                      class="invalid-feedback"
+                      *ngIf="(updateProductForm.controls['image'].touched || updateProductForm.invalid) && updateProductForm.controls['image'].errors?.['required']"
+                    >
+                      This field is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="form-group mb-3">
+                    <label for="price" class="form-label">Description</label>
+                    <textarea
+                      class="form-control bg-transparent shadow-none"
+                      name="price"
+                      id="price"
+                      formControlName="price"
+                      required
+                      rows="5"
+                      [ngClass]="{
+                        'is-invalid':
+                          updateProductForm.controls['price'].invalid &&
+                          updateProductForm.controls['price'].touched,
+                        '': updateProductForm.controls['price'].valid
+                      }"
+                    ></textarea>
+
+                    <div
+                      class="invalid-feedback"
+                      *ngIf="(updateProductForm.controls['price'].touched || updateProductForm.invalid) && updateProductForm.controls['price'].errors?.['required']"
+                    >
+                      This field is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group text-center mb-3">
+                <button
+                  type="submit"
+                  *ngIf="!submitted"
+                  class="btn btn-primary"
+                  id="submit"
+                >
+                  Update Product
+                </button>
+                <button
+                  type="button"
+                  *ngIf="submitted"
+                  class="btn btn-primary pe-none"
+                >
+                  <span
+                    class="spinner-grow spinner-grow-sm me-2"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>
+                  <span>updating...</span>
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
-  </main>
-  
+  </div>
+</main>
