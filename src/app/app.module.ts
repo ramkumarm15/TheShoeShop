@@ -41,6 +41,7 @@ import { HttpReqInterceptor } from './Interceptor/httpreq.interceptor';
 import { ErrorInterceptor } from './Interceptor/error.interceptor';
 import { LoaderComponent } from './Component/loader/loader.component';
 import { UpdateProductComponent } from './Component/Admin/update-product/update-product.component';
+import { CreateProductComponent } from './Component/Admin/create-product/create-product.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { UpdateProductComponent } from './Component/Admin/update-product/update-
     DeleteAddressComponent,
     LoaderComponent,
     UpdateProductComponent,
+    CreateProductComponent,
   ],
   imports: [
     BrowserModule,

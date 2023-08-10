@@ -10,6 +10,7 @@ import { ChangePasswordComponent } from './Component/change-password/change-pass
 import { BillingAddressComponent } from './Component/billing-address/billing-address.component';
 import { UpdateProductComponent } from './Component/Admin/update-product/update-product.component';
 import { AdminGuard } from './Guard/admin.guard';
+import { CreateProductComponent } from './Component/Admin/create-product/create-product.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -47,6 +48,11 @@ export const routes: Routes = [
   {
     path: 'admin/product',
     children: [
+      {
+        path: 'create',
+        component: CreateProductComponent,
+        canActivate: [AdminGuard],
+      },
       {
         path: 'update/:id',
         component: UpdateProductComponent,

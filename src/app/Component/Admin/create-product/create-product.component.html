@@ -6,10 +6,10 @@
       <div class="col-lg-6">
         <div class="card border-0">
           <div class="card-body">
-            <h3 class="text-center mb-4">Update a Product</h3>
+            <h3 class="text-center mb-4">Create a Product</h3>
             <form
               class="form"
-              [formGroup]="updateProductForm"
+              [formGroup]="createProductForm"
               (ngSubmit)="formSubmit()"
             >
               <div class="row">
@@ -26,14 +26,14 @@
                       required
                       [ngClass]="{
                         'is-invalid':
-                          updateProductForm.controls['name'].invalid &&
-                          updateProductForm.controls['name'].touched,
-                        '': updateProductForm.controls['name'].valid
+                          createProductForm.controls['name'].invalid &&
+                          createProductForm.controls['name'].touched,
+                        '': createProductForm.controls['name'].valid
                       }"
                     />
                     <div
                       class="invalid-feedback"
-                      *ngIf="(updateProductForm.controls['name'].touched || updateProductForm.invalid) && updateProductForm.controls['name'].errors?.['required']"
+                      *ngIf="(createProductForm.controls['name'].touched || createProductForm.invalid) && createProductForm.controls['name'].errors?.['required']"
                     >
                       This field is required
                     </div>
@@ -53,14 +53,14 @@
                       [disabled]="true"
                       [ngClass]="{
                         'is-invalid':
-                          updateProductForm.controls['slug'].invalid &&
-                          updateProductForm.controls['slug'].touched,
-                        '': updateProductForm.controls['slug'].valid
+                          createProductForm.controls['slug'].invalid &&
+                          createProductForm.controls['slug'].touched,
+                        '': createProductForm.controls['slug'].valid
                       }"
                     />
                     <div
                       class="invalid-feedback"
-                      *ngIf="(updateProductForm.controls['slug'].touched || updateProductForm.invalid) && updateProductForm.controls['slug'].errors?.['required']"
+                      *ngIf="(createProductForm.controls['slug'].touched || createProductForm.invalid) && createProductForm.controls['slug'].errors?.['required']"
                     >
                       This field is required
                     </div>
@@ -80,14 +80,14 @@
                       required
                       [ngClass]="{
                         'is-invalid':
-                          updateProductForm.controls['price'].invalid &&
-                          updateProductForm.controls['price'].touched,
-                        '': updateProductForm.controls['price'].valid
+                          createProductForm.controls['price'].invalid &&
+                          createProductForm.controls['price'].touched,
+                        '': createProductForm.controls['price'].valid
                       }"
                     />
                     <div
                       class="invalid-feedback"
-                      *ngIf="(updateProductForm.controls['price'].touched || updateProductForm.invalid) && updateProductForm.controls['price'].errors?.['required']"
+                      *ngIf="(createProductForm.controls['price'].touched || createProductForm.invalid) && createProductForm.controls['price'].errors?.['required']"
                     >
                       This field is required
                     </div>
@@ -105,14 +105,14 @@
                       required
                       [ngClass]="{
                         'is-invalid':
-                          updateProductForm.controls['image'].invalid &&
-                          updateProductForm.controls['image'].touched,
-                        '': updateProductForm.controls['image'].valid
+                          createProductForm.controls['image'].invalid &&
+                          createProductForm.controls['image'].touched,
+                        '': createProductForm.controls['image'].valid
                       }"
                     />
                     <div
                       class="invalid-feedback"
-                      *ngIf="(updateProductForm.controls['image'].touched || updateProductForm.invalid) && updateProductForm.controls['image'].errors?.['required']"
+                      *ngIf="(createProductForm.controls['image'].touched || createProductForm.invalid) && createProductForm.controls['image'].errors?.['required']"
                     >
                       This field is required
                     </div>
@@ -134,15 +134,15 @@
                       rows="5"
                       [ngClass]="{
                         'is-invalid':
-                          updateProductForm.controls['description'].invalid &&
-                          updateProductForm.controls['description'].touched,
-                        '': updateProductForm.controls['description'].valid
+                          createProductForm.controls['description'].invalid &&
+                          createProductForm.controls['description'].touched,
+                        '': createProductForm.controls['description'].valid
                       }"
                     ></textarea>
 
                     <div
                       class="invalid-feedback"
-                      *ngIf="(updateProductForm.controls['description'].touched || updateProductForm.invalid) && updateProductForm.controls['description'].errors?.['required']"
+                      *ngIf="(createProductForm.controls['description'].touched || createProductForm.invalid) && createProductForm.controls['description'].errors?.['required']"
                     >
                       This field is required
                     </div>
@@ -155,9 +155,9 @@
                   *ngIf="!submitted"
                   class="btn btn-primary"
                   id="submit"
-                  [disabled]="!updateProductForm.valid"
+                  [disabled]="!createProductForm.valid"
                 >
-                  Update Product
+                  Create Product
                 </button>
                 <button
                   type="button"
@@ -169,7 +169,7 @@
                     role="status"
                     aria-hidden="true"
                   ></span>
-                  <span>updating...</span>
+                  <span>creating...</span>
                 </button>
               </div>
             </form>
